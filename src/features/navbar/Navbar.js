@@ -36,7 +36,7 @@ function NavBar({children}) {
   return (
     <>
       <div className="min-h-full">
-        <Disclosure as="nav" className="bg-gray-800/50">
+        <Disclosure as="nav" className="bg-gray-800">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex h-16 items-center justify-between">
               <div className="flex items-center">
@@ -74,10 +74,9 @@ function NavBar({children}) {
                     className="relative rounded-full p-1 text-gray-400 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500"
                   >
                     <span className="absolute -inset-1.5" />
-                    <span className="sr-only">View notifications</span>
                     <ShoppingCartIcon aria-hidden="true" className="size-6" />
-                    <span className="inline-flex items-center rounded-md bg-gray-400/10 px-2 py-1 text-xs font-medium text-gray-400 inset-ring inset-ring-gray-400/20">
-                        Badge
+                    <span className="absolute -top-1 -right-1 inline-flex items-center justify-center rounded-full bg-white px-1.5 py-0.5 text-[10px] font-semibold text-gray-900 shadow ring-1 ring-gray-200">
+                      3
                     </span>
                   </button>
 
@@ -170,10 +169,9 @@ function NavBar({children}) {
                   className="relative ml-auto shrink-0 rounded-full p-1 text-gray-400 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500"
                 >
                   <span className="absolute -inset-1.5" />
-                  <span className="sr-only">View notifications</span>
                   <ShoppingCartIcon aria-hidden="true" className="size-6" />
-                  <span className="inline-flex items-center rounded-md bg-gray-400/10 px-2 py-1 text-xs font-medium text-gray-400 inset-ring inset-ring-gray-400/20">
-                    Badge
+                  <span className="absolute -top-1 -right-1 inline-flex items-center justify-center rounded-full bg-white px-1.5 py-0.5 text-[10px] font-semibold text-gray-900 shadow ring-1 ring-gray-200">
+                    3
                   </span>
                 </button>
               </div>
@@ -193,10 +191,10 @@ function NavBar({children}) {
           </DisclosurePanel>
         </Disclosure>
 
-        <header className="relative bg-gray-800 after:pointer-events-none after:absolute after:inset-x-0 after:inset-y-0 after:border-y after:border-white/10">
+        <header className="relative bg-white after:pointer-events-none after:absolute after:inset-x-0 after:inset-y-0 after:border-y after:border-gray-200">
           <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-            <h1 className="text-3xl font-bold tracking-tight text-white">
-              Dashboard
+            <h1 className="text-3xl font-bold tracking-tight text-gray-900">
+              E-Commerce
             </h1>
           </div>
         </header>
