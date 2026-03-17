@@ -8,6 +8,7 @@ import {
   MenuItems,
 } from "@headlessui/react";
 import { Bars3Icon, ShoppingCartIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 
 const user = {
   name: "Tom Cook",
@@ -69,6 +70,7 @@ function NavBar({children}) {
               </div>
               <div className="hidden md:block">
                 <div className="ml-4 flex items-center md:ml-6">
+                  <Link to='/cart'>
                   <button
                     type="button"
                     className="relative rounded-full p-1 text-gray-400 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500"
@@ -79,6 +81,7 @@ function NavBar({children}) {
                       3
                     </span>
                   </button>
+                  </Link>
 
                   {/* Profile dropdown */}
                   <Menu as="div" className="relative ml-3">
@@ -164,6 +167,7 @@ function NavBar({children}) {
                     {user.email}
                   </div>
                 </div>
+                <Link to='/cart'>
                 <button
                   type="button"
                   className="relative ml-auto shrink-0 rounded-full p-1 text-gray-400 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500"
@@ -174,6 +178,7 @@ function NavBar({children}) {
                     3
                   </span>
                 </button>
+                </Link>
               </div>
               <div className="mt-3 space-y-1 px-2">
                 {userNavigation.map((item) => (
