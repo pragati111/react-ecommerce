@@ -1798,4 +1798,4 @@ const products = [
   ]
 
 const categories = [...new Set ([...products.map(p=>p.category)])]
-categories.map(c=>({value:c, label:c.split('-').join(' '), checked:false}))
+categories.map(c=>({value:c, label:c.split('-').join(' ')}))

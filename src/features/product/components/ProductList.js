@@ -23,7 +23,7 @@ import {
 
 import { ChevronLeftIcon, ChevronRightIcon, StarIcon } from '@heroicons/react/20/solid'
 import { Link } from "react-router-dom";
-import { fetchAllProductsAsync,selectAllProducts } from "../productSlice";
+import { fetchAllProductsAsync,fetchProductsByFiltersAsync,selectAllProducts } from "../productSlice";
 
 const items = [
   { id: 1, title: 'Back End Developer', department: 'Engineering', type: 'Full-time', location: 'Remote' },
@@ -39,17 +39,34 @@ const sortOptions = [
   { name: "Price: High to Low", href: "#", current: false },
 ];
 const filters = [
-  {
-    id: "color",
-    name: "Color",
-    options: [
-      { value: "white", label: "White", checked: false },
-      { value: "beige", label: "Beige", checked: false },
-      { value: "blue", label: "Blue", checked: true },
-      { value: "brown", label: "Brown", checked: false },
-      { value: "green", label: "Green", checked: false },
-      { value: "purple", label: "Purple", checked: false },
-    ],
+    {
+      id: "brands",
+      name: "Brands",
+      options: [
+    { value: 'Essence', label: 'Essence', checked: false },
+    { value: 'Glamour Beauty', label: 'Glamour Beauty', checked: false },
+    { value: 'Velvet Touch', label: 'Velvet Touch', checked: false },
+    { value: 'Chic Cosmetics', label: 'Chic Cosmetics', checked: false },
+    { value: 'Nail Couture', label: 'Nail Couture', checked: false },
+    { value: 'Calvin Klein', label: 'Calvin Klein', checked: false },
+    { value: 'Chanel', label: 'Chanel', checked: false },
+    { value: 'Dior', label: 'Dior', checked: false },
+    {
+      value: 'Dolce & Gabbana',
+      label: 'Dolce & Gabbana',
+      checked: false
+    },
+    { value: 'Gucci', label: 'Gucci', checked: false },
+    {
+      value: 'Annibale Colombo',
+      label: 'Annibale Colombo',
+      checked: false
+    },
+    { value: 'Furniture Co.', label: 'Furniture Co.', checked: false },
+    { value: 'Knoll', label: 'Knoll', checked: false },
+    { value: 'Bath Trends', label: 'Bath Trends', checked: false },
+    { value: undefined, label: 'No Brand', checked: false }
+  ]
   },
   {
     id: "category",
@@ -88,6 +105,10 @@ export default function ProductList() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const products = useSelector(selectAllProducts);
   
+  const handleFilter = (e,section,option) =>{
+    dispatch(fetchProductsByFilterAsync)
+    console.log(section.id, option.value)
+  }
 
   useEffect(()=>{
     dispatch(fetchAllProductsAsync())
@@ -300,6 +321,7 @@ export default function ProductList() {
                                     id={`filter-${section.id}-${optionIdx}`}
                                     name={`${section.id}[]`}
                                     type="checkbox"
+                                    onChange={e=>handleFilter(e,section,option)}
                                     className="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 bg-white checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto"
                                   />
                                   <svg
